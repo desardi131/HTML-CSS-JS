@@ -1,0 +1,11 @@
+{
+    "configurations": [
+    {
+        "type": "firefox",
+        "request": "launch",
+        "reAttach": true,
+        "name": "Launch ibm001-galeria-imagenes.html",
+        "file": "${workspaceFolder}/ibm001-galeria-imagenes.html"
+    }
+    ]
+}
