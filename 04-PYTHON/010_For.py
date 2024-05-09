@@ -15,10 +15,10 @@ for i in ["primavera", "verano", "otoño", "invierno"]:
  
 #   Repite el print tantas veces como caracteres hay en el string 
 
-#   Evaluamos si un mail contiene el caracter @
-
 for i in "frase":		
 	print("Hola", end=" ")
+    
+#   Evaluamos si un mail contiene el caracter @
  
 miEmail=input("Introduce email")
 email=False
