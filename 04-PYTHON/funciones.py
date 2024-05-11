@@ -330,7 +330,7 @@ def imprimir_numero_recursivo(numero):
     elif numero < 0:
         print('Valor incorrecto...')
 
-imprimir_numero_recursivo(5000000)
+# imprimir_numero_recursivo(5000000)
 
 #---------------------------------------
 
@@ -390,3 +390,12 @@ resultado = fahrenheit_celsius(fahrenheit)
 # Imprimimos el resultado
 print(f'{fahrenheit} F a C: {resultado:0.2f}')
 
+# Funcion numeros primos
+
+def es_primo(num): # La funcion comprueba si el numero es primo
+    if num <= 1:  # el numero 1 no cuenta como numero primo, ni los numeros negativos
+        return False
+    for i in range(2, int(num**0.5) + 1): 
+        if num % i == 0:
+            return False
+    return True
