@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from MiProyecto.views import saludo,fecha,calcedad,home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home),
+    path('saludo/', saludo),
+    path('fecha/', fecha),
+    path('calcedad/<int:edadactual>/<int:year>', calcedad)
 ]
