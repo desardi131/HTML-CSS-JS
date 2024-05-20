@@ -9,7 +9,7 @@ def my_funcion():
 
 #   Llamada a la función. En otra parte de mi código, llamamos a la función para que se ejecute:
 
-my_funcion()
+# my_funcion()
 
 #   -------------------------------------
 
@@ -19,7 +19,7 @@ def suma():
     num2 = 5
     print("suma =", num1+num2)
 
-suma()
+# suma()
 
 # Otra opción:
 def suma():
@@ -31,7 +31,7 @@ def suma():
 
 
 
-print(suma())
+# print(suma())
 
 #   -------------------------------------
 #El bloque de código que ejecutará la función incluye todas las declaraciones con indentación 
@@ -52,8 +52,8 @@ def duplica(num):
     x = num * 2
     return x
 
-print(x)  # error - x no está definida
-print(duplica(4))  # muestra 8
+# print(x)  # error - x no está definida
+# print(duplica(4))  # muestra 8
 
 #---------------------------------------
 
@@ -64,7 +64,7 @@ def multiplica(arg1, arg2):
 
 #print(multiplica(3))  # TypeError: multiplica() utiliza exactamente 2 argumentos (0 proporcionados)
 
-print(multiplica('a', 5))  # 'aaaaa' mostrado en la consola
+# print(multiplica('a', 5))  # 'aaaaa' mostrado en la consola
 
 #print(multiplica('a', 'b'))  # TypeError: Python no puede multiplicar dos strings
 
@@ -74,7 +74,7 @@ def suma(a, b):
     return a + b
 
 result = suma(b=2, a=3)
-print(result)
+# print(result)
 # result = 4
 
 #---------------------------------------
@@ -104,14 +104,14 @@ def miFuncion(num1, num2):
 
 #   Llamada a la función
 
-print(miFuncion(2, 3))
+# print(miFuncion(2, 3))
 
 
 #   -------------------------------------
 def holaConNombre(name):
   print("Hola " + name + "!")
 
-holaConNombre("Angel")  # llamada a la función, 'Hola Angel!' se muestra en la consola
+# holaConNombre("Angel")  # llamada a la función, 'Hola Angel!' se muestra en la consola
 #   -------------------------------------
 
 
@@ -122,7 +122,7 @@ holaConNombre("Angel")  # llamada a la función, 'Hola Angel!' se muestra en la 
 def imprimir(precio, iva = 1.21): 
     print(precio * iva)
 
-imprimir(300, 1.08)
+# imprimir(300, 1.08)
 
 #   Funciones con argumentos variables
 #   Me crea una tupla de nombre "otros" 
@@ -131,9 +131,9 @@ def varios(param1, param2, *otros):
     for val in otros: 
         print (val)
 
-varios(1, 2)
-varios(1, 2, 3)
-varios(1, 2, 3, 4)
+# varios(1, 2)
+# varios(1, 2, 3)
+# varios(1, 2, 3, 4)
 
 
 """
@@ -148,7 +148,7 @@ def varios(param1, param2, **otros):
     for i in otros.items(): 
         print (i)
 
-varios(1, 2, tercero = 3)
+# varios(1, 2, tercero = 3)
 
 # ---------------------------
 #---------------------------------------
@@ -159,8 +159,8 @@ def listarNombres(*nombres):
     for nombre in nombres:
         print(nombre)
 
-listarNombres('Juan', 'Karla', 'María', 'Ernesto')
-listarNombres('Laura', 'Carlos')
+# listarNombres('Juan', 'Karla', 'María', 'Ernesto')
+# listarNombres('Laura', 'Carlos')
 
 #---------------------------------------
 # hACER LO MISMO PERO PASANDO DICCIONARIOS COMO ARGUMENTOS. KWARGS
@@ -169,8 +169,8 @@ def listarTerminos(**KWARGS):
     for clave, valor in KWARGS.items():
         print(f'{clave}: {valor}')
 
-listarTerminos(IDE='Integrated Developement Environment', PK='Primary Key')
-listarTerminos(DBMS='Database Management System')
+# listarTerminos(IDE='Integrated Developement Environment', PK='Primary Key')
+# listarTerminos(DBMS='Database Management System')
 
 
 #---------------------------------------
@@ -181,8 +181,8 @@ def mi_funcion(nombre, apellido):
     # Sería como imprimir así:
     print('Nombre:', nombre, 'Apellido:', apellido)
 
-mi_funcion('Juan', 'Perez')
-mi_funcion('Karla','Lara')
+# mi_funcion('Juan', 'Perez')
+# mi_funcion('Karla','Lara')
 
 #---------------------------------------
 # RETURN
@@ -200,19 +200,19 @@ def myfunction():
 def sumar(a, b):
     return a + b
 
-resultado = sumar(5, 3)
-print(f'Resultado sumar: {resultado}')
-# print(f'Resultado sumar: {sumar(5,3}')
+# resultado = sumar(5, 3)
+# print(f'Resultado sumar: {resultado}')
+# # print(f'Resultado sumar: {sumar(5,3}')
 
 #También podíamos haber llamado a la función dentro de nuestro método print
-print(f'Resultado sumar: {sumar(5,3)}')
+# print(f'Resultado sumar: {sumar(5,3)}')
 
 # ---------------------------
 # función con múltiples parámetros con una sentencia de retorno
 def multiplica(val1, val2):
   return val1 * val2
 
-multiplica(3, 5)  # muestra 15 en la consola
+# multiplica(3, 5)  # muestra 15 en la consola
 
 #---------------------------------------
 
@@ -220,7 +220,7 @@ multiplica(3, 5)  # muestra 15 en la consola
 def suma(a, b):
   return a + b
 
-result = suma(1, 2)
+# result = suma(1, 2)
 # result = 3
 
 
@@ -231,7 +231,7 @@ result = suma(1, 2)
 def suma(a, b=3):
   return a + b
 
-result = suma(1)
+# result = suma(1)
 # result = 4
 
 
@@ -245,9 +245,9 @@ def sumar(a:int = 0, b:int = 0) -> int:
 
     resultado = sumar()
 #print(f'Resultado sumar: {resultado}')
-print(f'Resultado sumar: {sumar(45, 654)}')
-#uanque le hemos dicho el tipo de los parámetros no estamos obligados a cumplirlo.
-print(f'Resultado sumar: {sumar("aNGEL", "Garcia")}')
+# print(f'Resultado sumar: {sumar(45, 654)}')
+# #uanque le hemos dicho el tipo de los parámetros no estamos obligados a cumplirlo.
+# print(f'Resultado sumar: {sumar("aNGEL", "Garcia")}')
 
 
 
@@ -269,7 +269,7 @@ def sumar_valores(*args):
 
 
 # Llamada a la funcion
-print(sumar_valores(3, 5, 9, 4, 6, 45, 444))
+# print(sumar_valores(3, 5, 9, 4, 6, 45, 444))
 
 #---------------------------------------
 # Distintos tipos de datos como argumentos en Python
@@ -282,7 +282,7 @@ def desplegarNombres(nombres):
 #desplegarNombres(nombres)
 #desplegarNombres('Carlos')
 #desplegarNombres((8, 9))
-desplegarNombres([10, 11])
+# desplegarNombres([10, 11])
 
 #---------------------------------------
 # FUNCIONES RECURSIVAS
@@ -299,9 +299,9 @@ def factorial(numero):
     else:
         return numero * factorial(numero-1)
 
-numero = 6
-resultado = factorial(numero)
-print(f'El factorial de {numero} es {resultado}')
+# numero = 6
+# resultado = factorial(numero)
+# print(f'El factorial de {numero} es {resultado}')
 
 #---------------------------------------
 """
@@ -343,7 +343,7 @@ def cuenta_regresiva(numero):
             print ("Boooooooom!")
             print ("Fin de la función"), numero
 
-cuenta_regresiva(5)
+# cuenta_regresiva(5)
 
 #---------------------------------------
 """
@@ -358,10 +358,10 @@ def calcular_total_pago(pago_sin_impuesto, impuesto):
     return pago_total
 
 # Ejecutamos la funcion
-pago_sin_impuesto = float(input('Proporcione el pago sin impuestos: '))
-impuesto = float(input('Proporcione el monto del impuesto:'))
-pago_con_impuesto = calcular_total_pago(pago_sin_impuesto, impuesto)
-print(f'Pago con impuesto: {pago_con_impuesto}')
+# pago_sin_impuesto = float(input('Proporcione el pago sin impuestos: '))
+# impuesto = float(input('Proporcione el monto del impuesto:'))
+# pago_con_impuesto = calcular_total_pago(pago_sin_impuesto, impuesto)
+# print(f'Pago con impuesto: {pago_con_impuesto}')
 
 #---------------------------------------
 #---------------------------------------
@@ -379,21 +379,25 @@ def fahrenheit_celsius(fahrenheit):
     return (fahrenheit - 32) * 5 / 9
 
 # Realizamos algunas pruebas de conversion
-celsius = float(input('Proporcione su valor en celsius: '))
-resultado = celsius_fahrenheit(celsius)
-# Imprimimos el resultado
-print(f'{celsius} C a F: {resultado:.2f}')
+# celsius = float(input('Proporcione su valor en celsius: '))
+# resultado = celsius_fahrenheit(celsius)
+# # Imprimimos el resultado
+# print(f'{celsius} C a F: {resultado:.2f}')
 
 # Realizamos la prueba de grados fahrenheit a celsius
-fahrenheit = float(input('Proporcione su valor en fahrenheit: '))
-resultado = fahrenheit_celsius(fahrenheit)
-# Imprimimos el resultado
-print(f'{fahrenheit} F a C: {resultado:0.2f}')
+# fahrenheit = float(input('Proporcione su valor en fahrenheit: '))
+# resultado = fahrenheit_celsius(fahrenheit)
+# # Imprimimos el resultado
+# print(f'{fahrenheit} F a C: {resultado:0.2f}')
 
 # Funcion numeros primos
 
 def es_primo(num): # La funcion comprueba si el numero es primo
-    if num <= 1:  # el numero 1 no cuenta como numero primo, ni los numeros negativos
+    if type(num) not in [int]:
+        raise TypeError('Solo números enteros.')
+    if num<=0:
+        raise ValueError('No se permiten valores negativos')
+    elif num <= 1:  # el numero 1 no cuenta como numero primo, ni los numeros negativos
         return False
     for i in range(2, int(num**0.5) + 1): 
         if num % i == 0:
