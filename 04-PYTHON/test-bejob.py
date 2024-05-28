@@ -24,8 +24,7 @@ class Tarea():
     
     def set_marcada(self, marca:bool=True) -> None: # Tiene un booleando como entrada y no devuelve nada, nos permite cambiar el estado de la tarea
         self._marcada = marca
-        if self._marcada == True:
-            self.set_momento_creada()
+        self.set_momento_creada()
       
 
     def get_momento_creada(self) -> str: # Podemos ver el momento en el que se creó la tarea originalmente
@@ -51,7 +50,7 @@ class Consola():
     # Constructor
     def __init__(self) -> None:
         self.opciones = {
-            '1': self.menu_opcion_uno,
+            '1': self.opcion_uno,
             '2': self.opcion_dos,
             '3': self.menu_opcion_tres,
             '4': self.opcion_cuatro,
@@ -71,21 +70,10 @@ class Consola():
         print('4. Eliminar una tarea')
         print('q. Quit')
 
-    # Display opcion 1
-    def display_menu_opcion_uno(self) -> None: # Funcion que muestra un menu al entrar en opcion 1
-        print('Menu para añadir nuevas tareas')
-        print('1. Añadir una tarea')
-        print('2. Volver al menu principal') # Opcion para volver al menu principal
-    
-    # Display opcion 2
-    def display_menu_opcion_dos(self) -> None: # Funcion que muestra un menu al entrar en opcion 2
-        print('Menu para marcar tareas completadas')
-        print('1. Completar una tarea')
-        print('2. Volver al menu principal') # Opcion para volver al menu principal
-
     # Display opcion 3
     def display_menu_opcion_tres(self) -> None: # Funcion que muestra un menu al entrar en opcion 3
-        print('Menu para marcar tareas completadas')
+        imprimir_lista()
+        print('Menú de edición de tareas')
         print('1. Ver informacion de una tarea')
         print('2. Cambiar nombre a una tarea')
         print('3. Desmarcar una tarea')
@@ -104,19 +92,14 @@ class Consola():
                 print(f'Eleccion erronea: {eleccion}') # Solo aparece si la opcion es erronea
 
     # Logica Opcion 1
-    def menu_opcion_uno(self) -> None: # Menu de eleccion para añadir tareas
-        while True:
-            self.display_menu_opcion_uno()
-            eleccion:str = input('Elige una opcion: ').lower()
-            if eleccion == '1': # Si la eleccion es añadir tarea, llama al metodo anadir_tarea, creada abajo con la funcion de mismo nombre
-                self.anadir_tarea_method() # Llamada asi para diferenciarla de la funcion 
-            elif eleccion == '2': # Si la eleccion es volver, vuelve al menu principal
-                return 
-            else:
-                print(f'Eleccion erronea: {eleccion}')
+    def opcion_uno(self) -> None: # Menu de eleccion para añadir tareas
+        self.anadir_tarea() # Llamada asi para diferenciarla de la funcion 
 
-    def anadir_tarea_method(self) -> None:
-        anadir_tarea()
+    def anadir_tarea(self) -> Tarea:
+        nombre: str = input('Introduce una nueva tarea: ') # Se introduce el nombre por consola. siempre sera un string
+        nueva_tarea:Tarea = Tarea(nombre) # Crea la tarea, la cual se introduce en la lista debido a nuestro constructor
+        print(f'La tarea "{nombre}" ha sido añadida.') # Muestra la tarea recien introducida
+        return nueva_tarea # Devuelve la tarea para poder trabajar con ella, por ejemplo usando los metedos o cambiandole el nombre
 
     # Logica Opcion 2
     def opcion_dos(self) -> None: # Marcado de la tarea 
@@ -175,34 +158,31 @@ class Consola():
 
     # Logica Opcion 4
     def opcion_cuatro(self) -> None:
+        imprimir_lista()
+        self.eliminar_tarea()
+    
+    def eliminar_tarea(self) -> None:
         nombre: str = input('Introduce el nombre de la tarea a eliminar: ')
         tarea = Tarea.buscar_tarea_por_nombre(nombre)
         if tarea != None:
-            tarea.eliminar()
-            del tarea
+            tarea.eliminar() # Llama al metodo eliminar para sacar la tarea de la lista de tareas
+            del tarea # Usa la palabra designada del para eliminar la informacion en memoria
             print(f'La tarea "{nombre}" ha sido eliminada, ya no existe.')
         else:
             print(f'No se encontró la tarea con el nombre "{nombre}".')
-        
 
+    # Logica Salir
     def quit(self) -> None:
         print('Salir del programa.')
         self.running = False
 
 ### Funciones ###
 ### -----------------------------------------------------------------------------------------------------------------------------###
-
-def anadir_tarea() -> Tarea: # Funcion para crear una tarea nueva, añade la tarea a la lista 'tareas' situada dentro de la clase
-    nombre = input('Introduce una nueva tarea: ') # Se introduce el nombre por consola. siempre sera un string
-    nueva_tarea:Tarea = Tarea(nombre) # Crea la tarea, la cual se introduce en la lista debido a nuestro constructor
-    print(f'La tarea "{nombre}" ha sido añadida.') # Muestra la tarea recien introducida
-    return nueva_tarea # Devuelve la tarea para poder trabajar con ella, por ejemplo usando los metedos o cambiandole el nombre
-
 def casilla(tar:Tarea) -> None: # Añade una marca al nombre para indicar si esta completada o no
     if tar.get_marcada() == False:
-        print('[ ]',tar.nombre)
+        print(f'[ ] {Tarea.tareas.index(tar)}. {tar.nombre}')
     else:
-        print('[X]',tar.nombre)
+        print(f'[X] {Tarea.tareas.index(tar)}. {tar.nombre}')
 
 def orden_lista(obj_list:List) -> List: 
     sorted_obj_list = sorted(obj_list, key=lambda obj: obj.get_momento_creada()) # Ordena la lista de tareas, en funcion del momento de crearla o modificarla
