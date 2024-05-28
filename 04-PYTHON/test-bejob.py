@@ -93,7 +93,7 @@ class Consola():
 
     # Logica Opcion 1
     def opcion_uno(self) -> None: # Menu de eleccion para añadir tareas
-        self.anadir_tarea() # Llamada asi para diferenciarla de la funcion 
+        self.anadir_tarea() 
 
     def anadir_tarea(self) -> Tarea:
         nombre: str = input('Introduce una nueva tarea: ') # Se introduce el nombre por consola. siempre sera un string
